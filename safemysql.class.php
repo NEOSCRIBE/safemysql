@@ -470,6 +470,9 @@ class SafeMySQL
 	{
 		$query = '';
 		$raw   = array_shift($args);
+		if (is_array($args[0])) {
+            		$args = $args[0];              
+        	}
 		$array = preg_split('~(\?[nsiuap])~u',$raw,null,PREG_SPLIT_DELIM_CAPTURE);
 		$anum  = count($args);
 		$pnum  = floor(count($array) / 2);
